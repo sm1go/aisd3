@@ -183,6 +183,26 @@ def tarjan_adjacency_matrix(graph):
     
     return stack[::-1]
 
+def tarjan_adjacency_list(graph):
+    n = graph.n
+    visited = [False] * n
+    stack = []
+    
+    def dfs_util(v):
+        visited[v] = True
+        
+        for neighbor in graph.get_successors(v):
+            if not visited[neighbor]:
+                dfs_util(neighbor)
+        
+        stack.append(v)
+
+    for i in range(n):
+        if not visited[i]:
+            dfs_util(i)
+    
+    return stack[::-1]
+
 def tarjan_edge_list(graph):
     n = graph.n
     visited = [False] * n
@@ -204,6 +224,31 @@ def tarjan_edge_list(graph):
     return stack[::-1]
 
 def kahn_adjacency_matrix(graph):
+    n = graph.n
+    result = []
+    
+    in_degree = [0] * n
+    for i in range(n):
+        in_degree[i] = graph.get_in_degree(i)
+    
+    queue = deque()
+    for i in range(n):
+        if in_degree[i] == 0:
+            queue.append(i)
+    
+    while queue:
+        u = queue.popleft()
+        result.append(u)
+        
+        for v in graph.get_successors(u):
+            in_degree[v] -= 1
+            
+            if in_degree[v] == 0:
+                queue.append(v)
+    
+    return result
+
+def kahn_adjacency_list(graph):
     n = graph.n
     result = []
     

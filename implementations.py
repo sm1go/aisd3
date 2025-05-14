@@ -17,7 +17,7 @@ class AdjacencyMatrix:
         return list(range(self.n))
     
     def get_in_degree(self, vertex):
-        return sum(self.matrix[vertex] for i in range(self.n))
+        return sum(self.matrix[i][vertex] for i in range(self.n))
 
     def __str__(self):
         return "Macierz sąsiedztwa:\n" + "\n".join([str(row) for row in self.matrix])
