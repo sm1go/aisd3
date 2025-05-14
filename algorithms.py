@@ -1,8 +1,6 @@
 from collections import deque 
 
-# BFS 
-
-def bfs_adjancency_matrix(graph):
+def bfs_adjacency_matrix(graph):
     n = graph.n
     visited = [False] * n
     transversal = []
@@ -36,7 +34,7 @@ def bfs_adjancency_matrix(graph):
 
     return transversal
 
-def bfs_adjancency_list(graph):
+def bfs_adjacency_list(graph):
     n = graph.n
     visited = [False] * n
     transversal = []
@@ -102,7 +100,7 @@ def bfs_edge_list(graph):
 
     return transversal
 
-def dfs_adjancency_matrix(graph):
+def dfs_adjacency_matrix(graph):
     n = graph.n
     visited = [False] * n
     transversal = []
@@ -123,7 +121,7 @@ def dfs_adjancency_matrix(graph):
 
     return transversal
 
-def dfs_adjancency_list(graph):
+def dfs_adjacency_list(graph):
     n = graph.n
     visited = [False] * n
     transversal = []
@@ -165,7 +163,7 @@ def dfs_edge_list(graph):
 
     return transversal
 
-def tarjan_adjancency_matrix(graph):
+def tarjan_adjacency_matrix(graph):
     n = graph.n
     visited = [False] * n
     stack = []
@@ -205,7 +203,7 @@ def tarjan_edge_list(graph):
     
     return stack[::-1]
 
-def kahn_adjancency_matrix(graph):
+def kahn_adjacency_matrix(graph):
     n = graph.n
     result = []
     
@@ -279,5 +277,3 @@ def kahn_edge_list(graph):
                 queue.append(v)
     
     return result
-
-
