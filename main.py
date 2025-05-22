@@ -282,7 +282,7 @@ def main():
             visualize_graph(adj_matrix)
             
         elif op == 6:
-            n_values = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            n_values = [200, 400, 600, 800, 1000]
             run_algorithm_tests(n_values)
             
         elif op == 7:
