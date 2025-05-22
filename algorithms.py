@@ -273,30 +273,7 @@ def kahn_adjacency_list(graph):
     
     return result
 
-def kahn_edge_list(graph):
-    n = graph.n
-    result = []
-    
-    in_degree = [0] * n
-    for i in range(n):
-        in_degree[i] = graph.get_in_degree(i)
-    
-    queue = deque()
-    for i in range(n):
-        if in_degree[i] == 0:
-            queue.append(i)
-    
-    while queue:
-        u = queue.popleft()
-        result.append(u)
-        
-        for v in graph.get_successors(u):
-            in_degree[v] -= 1
-            
-            if in_degree[v] == 0:
-                queue.append(v)
-    
-    return result
+
 
 def kahn_edge_list(graph):
     n = graph.n
